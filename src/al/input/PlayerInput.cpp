@@ -1,11 +1,11 @@
 #include "al/input/PlayerInput.h"
 
 #include "al/LiveActor/LiveActor.h"
+#include "al/actor/rsDimension.h"
 #include "al/input/JoyPadAccelPoseAnalyzer.h"
 #include "al/input/PlayerInputFunction.h"
 #include "al/input/rsSeparatePlay.h"
 #include "al/player/PlayerFunction.h"
-#include "al/player/rsPlayerState.h"
 #include "al/util/InputUtil.h"
 #include "al/util/MathUtil.h"
 #include "al/util/VectorUtil.h"

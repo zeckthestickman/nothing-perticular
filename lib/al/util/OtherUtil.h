@@ -168,6 +168,8 @@ void showModelIfHide(al::LiveActor*);
 void hideModel(al::LiveActor*);
 void showModel(al::LiveActor*);
 
+bool isMsgPlayerDisregard(al::SensorMsg const*);
+
 }  // namespace al
 
 namespace rs {
@@ -180,6 +182,9 @@ bool isInChangeStageArea(al::LiveActor const*, sead::Vector3f const*);
 bool isInvalidChangeStage(al::LiveActor const*);
 
 bool isMsgCapTouchWall(al::SensorMsg const*);
+
+bool sendMsgTouchFireDrum2D(al::HitSensor*, al::HitSensor*);
+bool sendMsgEnemyAttack2D(al::HitSensor*, al::HitSensor*);
 
 void buyCap(al::IUseSceneObjHolder const*, char const*);
 
