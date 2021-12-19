@@ -168,7 +168,7 @@ void showModelIfHide(al::LiveActor*);
 void hideModel(al::LiveActor*);
 void showModel(al::LiveActor*);
 
-bool isMsgPlayerDisregard(al::SensorMsg const*);
+bool isMsgPlayerDisregard(al::SensorMsg const* message);
 
 }  // namespace al
 
