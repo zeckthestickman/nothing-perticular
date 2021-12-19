@@ -3,8 +3,8 @@
 #include "al/util/LiveActorUtil.h"
 #include "al/util/NerveUtil.h"
 #include "al/util/OtherUtil.h"
-#include "rs/Sensor.h"
 #include "rs/Dimension.h"
+#include "rs/Sensor.h"
 
 FireDrum2D::FireDrum2D(const char* name)
     : LiveActor(name) {}  // TODO minor mismatch about storing `gap`
@@ -48,7 +48,8 @@ void FireDrum2D::attackSensor(al::HitSensor* target, al::HitSensor* source) {
     }
 }
 
-bool FireDrum2D::receiveMsg(const al::SensorMsg* message, al::HitSensor* source, al::HitSensor* target) {
+bool FireDrum2D::receiveMsg(const al::SensorMsg* message, al::HitSensor* source,
+                            al::HitSensor* target) {
     return al::isMsgPlayerDisregard(message);
 }
 

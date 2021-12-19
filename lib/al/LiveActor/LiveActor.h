@@ -85,7 +85,8 @@ public:
     virtual void startClipped();
     virtual void endClipped();
     virtual void attackSensor(HitSensor* target, HitSensor* source);
-    virtual bool receiveMsg(const SensorMsg* message, HitSensor* source, HitSensor* target);  // NOTE: return type unknown
+    virtual bool receiveMsg(const SensorMsg* message, HitSensor* source,
+                            HitSensor* target);  // NOTE: return type unknown
     virtual bool receiveMsgScreenPoint(const SensorMsg*, ScreenPointer*,
                                        ScreenPointTarget*);  // NOTE: return type unknown
     virtual const char* getName() const override;

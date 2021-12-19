@@ -7,7 +7,7 @@ class In2DAreaMoveControl;
 
 class ActorDimensionKeeper {
 public:
-    ActorDimensionKeeper(const al::LiveActor* live_actor);
+    ActorDimensionKeeper(const al::LiveActor* actor);
     void validate();
     void invalidate();
     ActorDimensionKeeper* forceChange2DKeep();

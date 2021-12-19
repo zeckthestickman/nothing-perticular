@@ -6,8 +6,8 @@
 
 namespace rs {
 
-ActorDimensionKeeper* createDimensionKeeper(const al::LiveActor* live_actor) {
-    return new ActorDimensionKeeper(live_actor);
+ActorDimensionKeeper* createDimensionKeeper(const al::LiveActor* actor) {
+    return new ActorDimensionKeeper(actor);
 }
 
 bool is2D(const IUseDimension* dimension) {
