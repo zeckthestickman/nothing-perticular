@@ -1,17 +1,21 @@
 #pragma once
 
 #include "al/LiveActor/LiveActor.h"
-#include "al/actor/ActorDimensionKeeper.h"
-#include "al/actor/ActorInitInfo.h"
 #include "al/util/NerveUtil.h"
 #include "game/iuse/IUseDimension.h"
 
+namespace al {
+class ActorInitInfo;
+}
+class ActorDimensionKeeper;
+
 class FireDrum2D : public al::LiveActor, public IUseDimension {
 public:
-    FireDrum2D(const char* actorName);
-    virtual void init(const al::ActorInitInfo&) override;
-    void attackSensor(al::HitSensor*, al::HitSensor*) override;
-    bool receiveMsg(const al::SensorMsg*, al::HitSensor*, al::HitSensor*) override;
+    FireDrum2D(const char* name);
+    virtual void init(const al::ActorInitInfo& info) override;
+    void attackSensor(al::HitSensor* target, al::HitSensor* source) override;
+    bool receiveMsg(const al::SensorMsg* message, al::HitSensor* source,
+                    al::HitSensor* target) override;
 
     void exeWait();
     void exeBurn();

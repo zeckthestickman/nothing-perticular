@@ -183,9 +183,6 @@ bool isInvalidChangeStage(al::LiveActor const*);
 
 bool isMsgCapTouchWall(al::SensorMsg const*);
 
-bool sendMsgTouchFireDrum2D(al::HitSensor*, al::HitSensor*);
-bool sendMsgEnemyAttack2D(al::HitSensor*, al::HitSensor*);
-
 void buyCap(al::IUseSceneObjHolder const*, char const*);
 
 int getActiveQuestNum(al::IUseSceneObjHolder const*);

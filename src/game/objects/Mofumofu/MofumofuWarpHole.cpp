@@ -1,4 +1,4 @@
-#include "al/objects/Mofumofu/MofumofuWarpHole.h"
+#include "game/objects/Mofumofu/MofumofuWarpHole.h"
 
 #include <math/seadQuat.h>
 #include <math/seadVector.h>

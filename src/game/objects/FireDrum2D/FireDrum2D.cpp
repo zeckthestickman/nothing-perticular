@@ -1,17 +1,19 @@
-#include "al/objects/FireDrum2D/FireDrum2D.h"
+#include "game/objects/FireDrum2D/FireDrum2D.h"
 
-#include "al/actor/rsDimension.h"
 #include "al/util/LiveActorUtil.h"
 #include "al/util/NerveUtil.h"
 #include "al/util/OtherUtil.h"
+#include "rs/Sensor.h"
+#include "rs/Dimension.h"
 
-FireDrum2D::FireDrum2D(const char* actorName)
-    : LiveActor(actorName) {}  // TODO minor mismatch about storing `gap`
+FireDrum2D::FireDrum2D(const char* name)
+    : LiveActor(name) {}  // TODO minor mismatch about storing `gap`
 
-void FireDrum2D::init(const al::ActorInitInfo& actorInitInfo) {
-    al::initActor(this, actorInitInfo);
+void FireDrum2D::init(const al::ActorInitInfo& info) {
+    al::initActor(this, info);
     al::initNerve(this, &nrvWait, 0);
-    rs::updateDimensionKeeper(mActorDimensionKeeper = rs::createDimensionKeeper(this));
+    mActorDimensionKeeper = rs::createDimensionKeeper(this);
+    rs::updateDimensionKeeper(mActorDimensionKeeper);
 
     if (rs::isIn2DArea(this)) {
         rs::snap2D(this, this, 500.0f);
@@ -40,14 +42,14 @@ void FireDrum2D::exeBurn() {
     }
 }
 
-void FireDrum2D::attackSensor(al::HitSensor* source, al::HitSensor* target) {
-    if (rs::sendMsgTouchFireDrum2D(target, source) || rs::sendMsgEnemyAttack2D(target, source)) {
+void FireDrum2D::attackSensor(al::HitSensor* target, al::HitSensor* source) {
+    if (rs::sendMsgTouchFireDrum2D(source, target) || rs::sendMsgEnemyAttack2D(source, target)) {
         al::setNerve(this, &nrvBurn);
     }
 }
 
-bool FireDrum2D::receiveMsg(const al::SensorMsg* sensorMsg, al::HitSensor*, al::HitSensor*) {
-    return al::isMsgPlayerDisregard(sensorMsg);
+bool FireDrum2D::receiveMsg(const al::SensorMsg* message, al::HitSensor* source, al::HitSensor* target) {
+    return al::isMsgPlayerDisregard(message);
 }
 
 namespace {

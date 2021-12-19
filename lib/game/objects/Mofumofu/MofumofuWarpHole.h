@@ -7,8 +7,8 @@
 
 class MofumofuWarpHole : public al::LiveActor {
 public:
-    MofumofuWarpHole(const char*);
-    void init(const al::ActorInitInfo&) override;
+    MofumofuWarpHole(const char* name);
+    void init(const al::ActorInitInfo& info) override;
     void appear() override;
     void disappear();
     void close();
