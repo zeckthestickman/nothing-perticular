@@ -14,11 +14,11 @@ public:
     void forceEndChange2DKeep();
     bool update();
 
-    bool getIs2D() { return is2D; }
-    bool getIsIn2DArea() { return isIn2DArea; }
-    bool getIsCurrently2D() { return isCurrently2D; }
-    bool getIsCanChange2D() { return isCanChange2D; }
-    bool getIsCanChange3D() { return isCanChange3D; }
+    bool getIs2D() const { return is2D; }
+    bool getIsIn2DArea() const { return isIn2DArea; }
+    bool getIsCurrently2D() const { return isCurrently2D; }
+    bool getIsCanChange2D() const { return isCanChange2D; }
+    bool getIsCanChange3D() const { return isCanChange3D; }
 
 private:
     const al::LiveActor* mLiveActor;
