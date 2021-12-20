@@ -3,6 +3,7 @@
 #include "al/util/LiveActorUtil.h"
 #include "al/util/NerveUtil.h"
 #include "al/util/OtherUtil.h"
+#include "al/sensor/SensorMsg.h"
 #include "rs/Dimension.h"
 #include "rs/Sensor.h"
 
@@ -42,8 +43,8 @@ void FireDrum2D::exeBurn() {
     }
 }
 
-void FireDrum2D::attackSensor(al::HitSensor* target, al::HitSensor* source) {
-    if (rs::sendMsgTouchFireDrum2D(source, target) || rs::sendMsgEnemyAttack2D(source, target)) {
+void FireDrum2D::attackSensor(al::HitSensor* source, al::HitSensor* target) {
+    if (rs::sendMsgTouchFireDrum2D(target, source) || rs::sendMsgEnemyAttack2D(target, source)) {
         al::setNerve(this, &nrvBurn);
     }
 }
