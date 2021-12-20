@@ -30,5 +30,4 @@ private:
     bool isCanChange3D = false;
     In2DAreaMoveControl* mIn2DAreaMoveControl = nullptr;
 };
-
 static_assert(sizeof(ActorDimensionKeeper) == 0x18);
