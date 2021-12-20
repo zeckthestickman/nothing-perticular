@@ -10,8 +10,8 @@ public:
     ActorDimensionKeeper(const al::LiveActor* actor);
     void validate();
     void invalidate();
-    ActorDimensionKeeper* forceChange2DKeep();
-    ActorDimensionKeeper* forceEndChange2DKeep();
+    void forceChange2DKeep();
+    void forceEndChange2DKeep();
     bool update();
 
     bool getIs2D() { return is2D; }
