@@ -12,7 +12,7 @@ class ActorDimensionKeeper;
 class FireDrum2D : public al::LiveActor, public IUseDimension {
 public:
     FireDrum2D(const char* name);
-    virtual void init(const al::ActorInitInfo& info) override;
+    void init(const al::ActorInitInfo& info) override;
     void attackSensor(al::HitSensor* target, al::HitSensor* source) override;
     bool receiveMsg(const al::SensorMsg* message, al::HitSensor* source,
                     al::HitSensor* target) override;
@@ -20,10 +20,10 @@ public:
     void exeWait();
     void exeBurn();
 
-    virtual ActorDimensionKeeper* getActorDimensionKeeper() const override;
+    ActorDimensionKeeper* getActorDimensionKeeper() const override;
 
 private:
-    ActorDimensionKeeper* mActorDimensionKeeper;
+    ActorDimensionKeeper* mActorDimensionKeeper = nullptr;
 };
 
 namespace {

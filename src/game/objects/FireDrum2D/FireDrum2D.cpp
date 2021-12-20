@@ -8,7 +8,7 @@
 #include "rs/Sensor.h"
 
 FireDrum2D::FireDrum2D(const char* name)
-    : LiveActor(name) {}  // TODO minor mismatch about storing `gap`
+    : LiveActor(name) {}
 
 void FireDrum2D::init(const al::ActorInitInfo& info) {
     al::initActor(this, info);
