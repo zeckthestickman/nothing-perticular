@@ -3,6 +3,7 @@
 #include "al/LiveActor/LiveActor.h"
 #include "al/iuse/IUsePlayerHack.h"
 
+class PlayerInfo;
 class PlayerInitInfo;
 
 class PlayerActorBase : public al::LiveActor, public al::IUsePlayerHack {
@@ -33,7 +34,7 @@ public:
     virtual void* getDemoAnimator();        // NOTE: unknown return type
     virtual bool isDamageStopDemo() const;  // NOTE: unknown return type
     virtual void* getPlayerPuppet();        // NOTE: unknown return type
-    virtual void* getPlayerInfo() const;    // NOTE: unknown return type
+    virtual PlayerInfo* getPlayerInfo() const;
     virtual unsigned int getPortNo() const;
     virtual void* getViewMtx() const;  // NOTE: unknown return type
     virtual void movement() override;
