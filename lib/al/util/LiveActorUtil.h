@@ -19,12 +19,19 @@ sead::Vector3f* getUp(const al::LiveActor*);
 sead::Vector3f* getUpPtr(al::LiveActor*);
 sead::Vector3f* getFront(const al::LiveActor*);
 sead::Vector3f* getFrontPtr(al::LiveActor*);
+sead::Vector3f* getVelocity(const al::LiveActor*);
+sead::Vector3f* getVelocityPtr(al::LiveActor*);
 sead::Vector3f* getCameraUp(const al::LiveActor*, int);
 
 sead::Vector3f* getScale(const al::LiveActor*);
 float getScaleX(const al::LiveActor*);
 float getScaleY(const al::LiveActor*);
 float getScaleZ(const al::LiveActor*);
+
+float calcDistance(const al::LiveActor*, const al::LiveActor*);
+float calcSpeed(const al::LiveActor*);
+float calcSpeedH(const al::LiveActor*);
+float calcSpeedV(const al::LiveActor*);
 
 bool isClipped(const LiveActor*);
 void tryInitFixedModelGpuBuffer(const LiveActor*);
