@@ -31,6 +31,7 @@ float getScaleX(const al::LiveActor*);
 float getScaleY(const al::LiveActor*);
 float getScaleZ(const al::LiveActor*);
 
+float calcDistance(const al::LiveActor*, const sead::Vector3f&);
 float calcDistance(const al::LiveActor*, const al::LiveActor*);
 float calcSpeed(const al::LiveActor*);
 float calcSpeedH(const al::LiveActor*);
