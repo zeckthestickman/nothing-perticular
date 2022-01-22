@@ -9,7 +9,6 @@
 #include "al/iuse/IUseCollision.h"
 #include "al/iuse/IUseEffectKeeper.h"
 #include "al/nerve/Nerve.h"
-#include "al/LiveActor/ActorPoseKeeper.h"
 #include "al/rail/RailKeeper.h"
 #include "al/rail/RailRider.h"
 #include "al/scene/SceneObjHolder.h"
@@ -39,6 +38,7 @@ private:
     int size;
 };
 
+class ActorPoseKeeperBase;
 class ActorExecuteInfo;
 class ActorActionKeeper;
 class ActorItemKeeper;
