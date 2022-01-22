@@ -28,7 +28,7 @@ public:
     virtual void updatePoseRotate(const sead::Vector3f&);
     virtual void updatePoseQuat(const sead::Quatf&);
     virtual void updatePoseMtx(const sead::Matrix34f&);
-    virtual void copyPose(const ActorPoseKeeperBase&);
+    virtual void copyPose(const ActorPoseKeeperBase*);
     virtual void calcBaseMtx(sead::Matrix34f*);
 private:
     sead::Vector3f mTrans{0, 0, 0};
