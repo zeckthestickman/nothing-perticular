@@ -1,4 +1,4 @@
-#include "al/MapParts/FixMapParts.h"
+#include "al/MapObj/FixMapParts.h"
 #include "al/sensor/SensorMsg.h"
 #include "al/util/LiveActorUtil.h"
 #include "al/util/OtherUtil.h"
