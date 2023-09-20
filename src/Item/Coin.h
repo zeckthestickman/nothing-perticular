@@ -5,7 +5,16 @@
 
 class Coin : public al::LiveActor {
 public:
-    void init(al::ActorInitInfo const&);
+    Coin(const char*, bool);
 
-    void control(void);
+    void init(const al::ActorInitInfo&);
+
+    void control();
+    void appearCoinRail();
+    bool isGot() const;
+
+    void setShadowDropLength(f32);
+
+private:
+    void* filler[0x15];
 };
