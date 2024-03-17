@@ -9,23 +9,26 @@
 
 namespace al {
 
-BgmKeeper::BgmKeeper(const al::AudioSystemInfo* audio_info, al::BgmDirector* director, const char* string) {
-    mBgmDirector = director;
-    mUserName = nullptr;
-
-    if(string != nullptr) {
-        mUserName = alBgmFunction::tryFindBgmUserInfo(audio_info->mBgmDataBase, string);
+BgmKeeper::BgmKeeper(const AudioSystemInfo* audioInfo, BgmDirector* director, const char* string)
+    : mBgmDirector(director) {
+    if (string != nullptr) {
+        mBgmUserInfo = alBgmFunction::tryFindBgmUserInfo(audioInfo->getBgmDataBase(), string);
     }
 }
-BgmKeeper* BgmKeeper::create(const al::AudioSystemInfo* audio_info, al::BgmDirector* director, const char* string){ 
-  BgmKeeper* new_bgmkeeper;
 
-  if (audio_info->mSeDataBase == nullptr) {
-    new_bgmkeeper = nullptr;
-  } else {
-    new_bgmkeeper = new BgmKeeper(audio_info, director, string);
-  }
+BgmKeeper* BgmKeeper::create(const AudioSystemInfo* audioInfo, BgmDirector* director,
+                             const char* string) {
+    if (!audioInfo->getSeDataBase())
+        return nullptr;
+    return new BgmKeeper(audioInfo, director, string);
+}
 
-  return new_bgmkeeper;
+void BgmKeeper::update() {}
+
+const char* BgmKeeper::getUserName() const {
+    if (mBgmUserInfo == nullptr) {
+        return nullptr;
+    }
+    return mBgmUserInfo->mName;
 }
-}
+}  // namespace al

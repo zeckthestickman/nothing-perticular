@@ -5,7 +5,8 @@ class Resource;
 
 class BgmDataBase {
 public:
+    static BgmDataBase* create(const char*, const char*);
+
     BgmDataBase(const Resource*, const Resource*);
-    static al::BgmDataBase* create(const char*, const char*);
 };
-}
+}  // namespace al
