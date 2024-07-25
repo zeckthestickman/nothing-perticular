@@ -11,6 +11,7 @@ jobs:
   compile_verify:
     if: github.repository == 'MonsterDruide1/OdysseyDecomp'
     runs-on: ubuntu-latest
+    environment: PRs-allow-ExeFS
     steps:
     - name: Check out project
       uses: actions/checkout@v3
