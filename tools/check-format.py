@@ -216,6 +216,13 @@ def common_this_prefix(c, path):
         if 'this->' in line:
             FAIL("this-> is not allowed!", line, path)
 
+def common_no_plain_auto(c, path):
+    for line in c.splitlines():
+        line = line.split("//")[0]
+        if "auto " in line and not (".begin()" in line and ".end()" in line):
+            # allow in loops: "for (auto it = mBuffer.begin(), end = mBuffer.end(); it != end; ++it)"
+            FAIL("auto must be typed as auto* or auto& (in most cases avoided altogether)!", line, path)
+
 # Header files
 
 def header_sorted_visibility(c, path):
@@ -331,6 +338,7 @@ def check_source(c, path):
     common_void_params(c, path)
     common_const_type(c, path)
     common_this_prefix(c, path)
+    common_no_plain_auto(c, path)
 
 def check_header(c, path):
     common_newline_eof(c, path)
@@ -339,9 +347,10 @@ def check_header(c, path):
     common_sead_types(c, path)
     common_void_params(c, path)
     common_const_type(c, path)
+    common_this_prefix(c, path)
+    common_no_plain_auto(c, path)
     header_sorted_visibility(c, path)
     header_no_offset_comments(c, path)
-    common_this_prefix(c, path)
 
 def check_file(file_str):
     file = open(file_str, mode="r")
